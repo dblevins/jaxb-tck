@@ -55,11 +55,13 @@ export TCK_ROOT=$WORKSPACE
 export  JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8"
 #wget $WGET_PROPS $GF_BUNDLE_URL -O latest-glassfish.zip
 #getting jaxb-ri which is needed to build the JAXB TCK
-wget $WGET_PROPS https://jenkins.eclipse.org/jaxb-impl/job/jaxb-ri-master-build/lastBuild/artifact/jaxb-ri/bundles/ri/target/jaxb-ri.zip -O jaxb-ri.zip
+#wget $WGET_PROPS https://jenkins.eclipse.org/jaxb-impl/job/jaxb-ri-master-build/lastBuild/artifact/jaxb-ri/bundles/ri/target/jaxb-ri.zip -O jaxb-ri.zip
+wget $WGET_PROPS https://ci.eclipse.org/jaxb-impl/job/jaxb-ri-pr-build/1/artifact/jaxb-ri/bundles/ri/target/jaxb-ri.zip -O jaxb-ri.zip
 unzip -o jaxb-ri.zip
 
+ls -l jaxb-ri/mod
 # Temporary overwrite of API package
-wget $WGET_PROPS https://search.maven.org/remotecontent?filepath=jakarta/xml/bind/jakarta.xml.bind-api/3.0.0-RC1/jakarta.xml.bind-api-3.0.0-RC1.jar -O jaxb-ri/mod/jakarta.xml.bind-api.jar
+#wget $WGET_PROPS https://search.maven.org/remotecontent?filepath=jakarta/xml/bind/jakarta.xml.bind-api/3.0.0-RC1/jakarta.xml.bind-api-3.0.0-RC1.jar -O jaxb-ri/mod/jakarta.xml.bind-api.jar
 
 wget $WGET_PROPS https://repository.ow2.org/nexus/service/local/repositories/snapshots/content/org/ow2/asm/asm-commons/7.0-SNAPSHOT/asm-commons-7.0-20181027.133601-5.jar -O asm-commons-7.0.jar
 wget $WGET_PROPS https://repository.ow2.org/nexus/service/local/repositories/snapshots/content/org/ow2/asm/asm/7.0-SNAPSHOT/asm-7.0-20181027.133552-5.jar -O asm-7.0.jar
